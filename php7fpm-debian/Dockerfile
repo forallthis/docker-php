@@ -34,3 +34,5 @@ RUN mv /etc/apt/sources.list /etc/apt/sources.list.bak \
 	&& /var/pkg/sh/install-phalcon \
 	&& /var/pkg/sh/install-scws \
 	&& rm -rf /var/pkg/* && rm -rf /tmp/* 
+
+COPY php.ini /usr/local/php/etc/
