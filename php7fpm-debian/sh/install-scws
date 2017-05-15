@@ -1,0 +1,26 @@
+#!/bin/sh
+set -e
+
+dir=/var/pkg/php-modules
+cd $dir
+wget http://www.xunsearch.com/scws/down/scws-1.2.3.tar.bz2
+tar xvf scws-1.2.3.tar.bz2
+cd scws-1.2.3
+
+installdir=/usr/local/scws
+
+./configure --prefix=${installdir}
+make
+make install
+
+cd phpext
+phpize
+./configure --with-scws=${installdir}
+make
+make install
+
+cd /usr/local/scws/etc
+wget http://www.xunsearch.com/scws/down/scws-dict-chs-utf8.tar.bz2
+tar xvjf scws-dict-chs-utf8.tar.bz2
+
+cd $HOME

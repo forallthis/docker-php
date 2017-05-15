@@ -1,0 +1,14 @@
+#!/bin/sh
+set -e
+
+dir=/var/pkg/php-modules
+
+cd $dir
+wget -O librdkafka-0.9.4.tar.gz  https://github.com/edenhill/librdkafka/archive/v0.9.4.tar.gz
+tar xvf librdkafka-0.9.4.tar.gz
+cd librdkafka-0.9.4
+./configure
+make
+make install
+
+cd $HOME

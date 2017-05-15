@@ -1,0 +1,10 @@
+#!/bin/sh
+set -e
+
+dir=/var/pkg/php-modules
+cd $dir
+git clone git://github.com/phalcon/cphalcon.git
+cd cphalcon/build
+./install
+
+cd $HOME
