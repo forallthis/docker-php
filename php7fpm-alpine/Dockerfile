@@ -4,7 +4,7 @@ MAINTAINER lijing <179927545@qq.com>
 
 #basic tools
 ARG BASIC_TOOLS="\
-	vim bash curl grep \ 
+	vim bash curl grep tzdata \ 
 	"
 
 #build dependence
@@ -32,6 +32,8 @@ RUN echo "http://mirrors.ustc.edu.cn/alpine/v3.4/main" >> /etc/apk/repositories 
     && pecl install mongodb \
     && pecl install swoole \
 	&& apk del .build-deps \
-	&& rm -rf /var/cache/apk/* 
+	&& rm -rf /var/cache/apk/* \
+	&& ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+    && echo "Asia/Shanghai" > /etc/timezone
 
 ADD php.ini /usr/local/etc/php/

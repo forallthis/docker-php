@@ -21,6 +21,7 @@ RUN mv /etc/apt/sources.list /etc/apt/sources.list.bak \
         python \
         libmcrypt4 \
         libmcrypt-dev \
+		tzdata \
         --no-install-recommends && rm -r /var/lib/apt/lists/* \
 	&& mkdir -p /var/pkg/php-modules \
     && docker-php-ext-install mcrypt \
@@ -34,6 +35,8 @@ RUN mv /etc/apt/sources.list /etc/apt/sources.list.bak \
     && pecl install rdkafka \
     && /var/pkg/sh/install-phalcon \
     && /var/pkg/sh/install-scws \
-    && rm -rf /var/pkg/* && rm -rf /tmp/*
+    && rm -rf /var/pkg/* && rm -rf /tmp/* \
+	&& ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+	&& echo "Asia/Shanghai" > /etc/timezone
 
-COPY php.ini /usr/local/php/etc/
+COPY php.ini /usr/local/etc/php/
