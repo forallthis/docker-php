@@ -4,7 +4,11 @@ set -e
 dir=/var/pkg/php-modules
 cd $dir
 git clone git://github.com/phalcon/cphalcon.git
-cd cphalcon/build
-./install
+cd cphalcon/build/php7/64bits
+phpize
+export CFLAGS="-O2 -g"
+./configure
+make
+sudo make install
 
 cd $HOME
