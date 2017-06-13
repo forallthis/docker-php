@@ -9,6 +9,6 @@ phpize
 export CFLAGS="-O2 -g"
 ./configure
 make
-sudo make install
+make install
 
 cd $HOME
