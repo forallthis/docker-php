@@ -35,7 +35,6 @@ RUN   apt-get update \
         ##thrift end
 		vim \
         sudo \
-        supervisor \
         --no-install-recommends && rm -r /var/lib/apt/lists/* \
 	&& mkdir -p /var/pkg/php-modules \
     && docker-php-ext-install mcrypt \
