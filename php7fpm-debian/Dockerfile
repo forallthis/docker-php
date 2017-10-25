@@ -65,3 +65,6 @@ RUN apt-get update \
     && rm -rf thrift-0.10.0 thrift-0.10.0.tar.gz
 
 COPY php.ini /usr/local/etc/php/
+
+RUN chown -R admin.admin /home/admin/.composer
+

@@ -67,3 +67,5 @@ RUN   apt-get update \
 
 
 COPY php.ini /usr/local/etc/php/
+
+RUN chown -R admin.admin /home/admin/.composer
