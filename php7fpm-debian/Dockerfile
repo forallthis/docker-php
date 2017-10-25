@@ -46,7 +46,6 @@ RUN apt-get update \
 	&& /var/pkg/sh/install-librdkafka \
 	&& pecl install rdkafka \
 	&& /var/pkg/sh/install-phalcon \
-	&& /var/pkg/sh/install-scws \
 	&& rm -rf /var/pkg/* && rm -rf /tmp/* \
 	&& ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && echo "Asia/Shanghai" > /etc/timezone \
